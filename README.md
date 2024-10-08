@@ -15,7 +15,63 @@ Therefore, changes may or may not construct a very practical API, though it will
 
 ## Documentation
 
-Coming soon™ <sup><sub>Don't count on it</sup></sub>
+You can import **way.ts** in your project like this:
+```ts
+import * as way from 'https://raw.githubusercontent.com/jabonchan/way.ts/refs/heads/main/mod.ts'
+```
+
+#### `way.normalize`
+> Unless otherwise stated, all paths returned by the functions in this module are passed to `way.normalize` first before being returned.
+
+Normalizes a path-like `string` or `URL`. It normalizes relative directives, removes surrounding slashes, parses `file:` URLs, removes forbidden characters in Windows *(whether you're using
+UNIX-based systems or Windows)*, and replaces Windows separators with UNIX separators.
+```ts
+function normalize(entrypath: string | URL): string
+```
+
+#### `way.execPath`
+Returns the path provided by `Deno.execPath`.
+```ts
+function execPath(): string
+```
+
+#### `way.cwd`
+Returns the path provided by `Deno.cwd`.
+```ts
+function cwd(): string
+```
+
+#### `way.join`
+Combines all the given paths into a single one by appending each one at the end of the previous one. Resolves relative directives.
+```ts
+function join(entrypath1: string | URL, ...entrypaths: (string | URL)[]): string
+```
+
+#### `way.separate`
+Splits the path by its separators, returning an array of base names or relative directives.
+```ts
+function separate(entrypath: string | URL): string[]
+```
+
+#### `way.windows`
+Replaces UNIX separators in the path with Windows separators. If it's absolute and doesn't have a drive letter, it adds `C:/` at the start of the path.
+```ts
+function windows(entrypath: string): string
+```
+
+#### `way.unix`
+Replaces Windows separators in the path with UNIX separators. If it's absolute and has a drive letter, it removes it.
+```ts
+function unix(entrypath: string): string
+```
+
+#### `way.basename`
+Returns the base name of the path. If the path only contains a relative directive, it returns null. The drive letter (including the `:`) is also returned if it's the only one available.
+```ts
+function basename(entrypath: string | URL): string | null
+```
+
+Remaining exports coming soon™ <sup><sub>Don't count on it</sup></sub>
 
 ---
 

@@ -23,5 +23,13 @@ export function isSandboxed(sandbox: string | URL, entrypath: string | URL) {
         return false;
     }
 
+    if (!entrypath.endsWith('/')) {
+        entrypath += '/';
+    }
+
+    if (!sandbox.endsWith('/')) {
+        sandbox += '/';
+    }
+
     return entrypath.startsWith(sandbox);
 }

@@ -57,7 +57,7 @@ export function normalize(entrypath: string | URL) {
     entrypath = entries.join(strings.UNIX_SEP);
 
     if (root.length) {
-        entrypath = entrypath.replace(/^((\.|\.\.)(\/?))+/, '');
+        entrypath = entrypath.replace(regexs.LEADING_RELATIVE, strings.EMPTY);
         entrypath = root + entrypath;
     }
 

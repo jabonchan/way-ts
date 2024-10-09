@@ -74,7 +74,7 @@ function basename(entrypath: string | URL): string | null
 
 #### `way.extname`
 Returns the extension name *(including the `.`)* of the path in lower case. If it doesn't has an extension *(i.e. `make` or `../`)* , `null` is returned instead.
-```
+```ts
 function extname(entrypath: string | URL): string | null
 ```
 

@@ -93,7 +93,7 @@ function dirname(entrypath: string | URL): string | null
 #### `way.dirpath`
 Returns the parent directory of the given path. It can't go higher than the root path *(i.e. `/` or `C:/`)*.
 ```ts
-function dirpath(entrypath: string | URL): string | null
+function dirpath(entrypath: string | URL): string
 ```
 
 #### `way.driveletter`

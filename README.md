@@ -9,7 +9,7 @@ I know there are great and way more robust `path` libraries for Deno out there. 
 
 ## Quick Note 📝
 
-I made this library for purely personal usage. Eventually, I decided to make it public, 'cuz why not? However, for the same reason, I won't really be updating this unless I need it. Therefore, changes may or may not construct a very practical API, though it will <sup><sub>likely</sup></sub> remain "easy."
+I originally created this library for my own personal use, but I thought it could be helpful to others, so I decided to make it public. That said, updates will **mostly depend on my own needs** as I continue to use **way.ts** in my projects. While the APIs will reflect my current requirements, I'll aim to keep it user-friendly. Just keep in mind that updates may not be frequent.
 
 ## Documentation 📚
 
@@ -100,6 +100,24 @@ function dirpath(entrypath: string | URL): string | null
 Returns the given path's drive letter *(`:` is not included)*. If none found, `null` is returned.
 ```ts
 function driveletter(entrypath: string | URL): string | null
+```
+
+#### `way.isAbsolute`
+Checks if the provided path is absolute.
+```ts
+function isAbsolute(entrypath: string | URL): boolean
+```
+
+#### `way.isRelative`
+Checks if the provided path is relative.
+```ts
+function isRelative(entrypath: string | URL): boolean
+```
+
+#### `way.isSandboxed`
+Checks whether the `entrypath` is located within the `sandbox` path. This check is **case-insensitive**. It will always return `false` if one or both paths are relative.
+```ts
+function isSandboxed(sandbox: string | URL, entrypath: string | URL): boolean
 ```
 
 ---

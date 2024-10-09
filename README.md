@@ -81,7 +81,7 @@ function extname(entrypath: string | URL): string | null
 #### `way.stemname`
 Returns the stem name of the path. If it doesn't has a stem name *(i.e. `.env` or `../`)*, `null` is returned instead.
 ```ts
-function basename(entrypath: string | URL): string | null
+function stemname(entrypath: string | URL): string | null
 ```
 
 #### `way.dirname`

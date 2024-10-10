@@ -1,4 +1,7 @@
 import { normalize } from './normalize.ts'
+import { separate } from './separate.ts'
+import { dirpath } from './entry-path-names.ts'
+
 import * as regexs from '../regexs.ts'
 
 export function isAbsolute(entrypath: string | URL) {
@@ -16,20 +19,12 @@ export function isRelative(entrypath: string | URL) {
 }
 
 export function isSandboxed(sandbox: string | URL, entrypath: string | URL) {
-    entrypath = normalize(entrypath).toLowerCase();
-    sandbox = normalize(sandbox).toLowerCase();
-
-    if (isRelative(sandbox) || isRelative(entrypath)) {
+    if (isRelative(sandbox) || isRelative(entrypath) || separate(entrypath).length < 2) {
         return false;
     }
 
-    if (!entrypath.endsWith('/')) {
-        entrypath += '/';
-    }
+    const entryDirpath = `${dirpath(entrypath).toLowerCase()}/`;
+    sandbox = `${normalize(sandbox).toLowerCase()}/`;
 
-    if (!sandbox.endsWith('/')) {
-        sandbox += '/';
-    }
-
-    return entrypath.startsWith(sandbox);
+    return entryDirpath.startsWith(sandbox);
 }

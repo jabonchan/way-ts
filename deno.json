@@ -1,0 +1,8 @@
+{
+    "test": {
+        "include": [
+            "./tests/formatting.ts",
+            "./tests/path-checks.ts"
+        ]
+    }
+}

@@ -4,9 +4,15 @@ import * as strings from '../strings.ts'
 import * as regexs from '../regexs.ts'
 
 export function normalize(entrypath: string | URL) {
+    entrypath = parseURL(entrypath);
+
+    if (regexs.ONLY_SEPARATORS.test(entrypath)) {
+        return '/';
+    }
+
     entrypath = strings.removeTrailing(
-                    parseURL(entrypath)
-                        .replace(regexs.FILE_PROTOCOL, strings.EMPTY)
+                    entrypath
+                        .replace(regexs.FILE_PROTOCOL, strings.UNIX_SEP)
                         .replace(regexs.PATH_SEP, strings.UNIX_SEP)
                         .replace(regexs.WINDOWS_ROOT, '$1:/'),
                         

@@ -19,10 +19,17 @@ export function isRelative(entrypath: string | URL) {
 }
 
 export function isSandboxed(sandbox: string | URL, entrypath: string | URL) {
-    if (isRelative(sandbox) || isRelative(entrypath) || separate(entrypath).length < 2) {
+    if (isRelative(sandbox) || isRelative(entrypath)) {
         return false;
     }
 
+    const entriesEntrypath = separate(entrypath);
+    const entriesSandbox = separate(sandbox);
+
+    if (entriesEntrypath.length <= entriesSandbox.length) {
+        return false;
+    }
+    
     const entryDirpath = `${dirpath(entrypath).toLowerCase()}/`;
     sandbox = `${normalize(sandbox).toLowerCase()}/`;
 

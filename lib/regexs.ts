@@ -1,3 +1,5 @@
+export const ONLY_SEPARATORS = /^(\\|\/)+$/;
+
 export const FILE_PROTOCOL = /^file:(\\|\/)*/i;
 
 export const WINDOWS_ROOT = /^(?:\\|\/)*([a-zA-Z]):(?:\\|\/)*/;

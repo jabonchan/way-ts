@@ -2,6 +2,7 @@
 
 <div align="center">
   <img src="https://img.shields.io/badge/Tested%20on%20Deno-2.0.0rc.10-blue"></img>
+  <img src="https://img.shields.io/badge/Dependencies-1-yellow"></img>
 </div>
 <br />
 
@@ -125,6 +126,26 @@ Checks whether the `entrypath` is located within the `sandbox` path. This check 
 ```ts
 function isSandboxed(sandbox: string | URL, entrypath: string | URL): boolean
 ```
+
+## Running Tests ⚙️
+
+**way.ts** uses Deno's built-in test feature. To run all the tests, use the following command:
+```bash
+deno test
+```
+
+You can also pass the `--filter` flag to run specific tests based on their name pattern:
+```bash
+deno test --filter match-pattern
+```
+
+To see the available test names, you can check the source code. Some of the test names include:
+- `path-checks`
+- `formatting`
+
+## Dependencies 🗃️
+
+**way.ts** uses Deno's [expect](https://jsr.io/@std/expect) from the [Deno Standard Library](https://jsr.io/@std) for testing, which is licensed under the MIT license. I do not own nor have any right over this dependency.
 
 <br /><hr />
 

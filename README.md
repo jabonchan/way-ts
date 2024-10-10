@@ -1,7 +1,13 @@
-# ╰┈way.ts┈➤
+<h1 align="center">╰┈way.ts┈➤</h1>
+
+<div align="center">
+  <img src="https://img.shields.io/badge/Tested%20on%20Deno-2.0.0rc.10-blue"></img>
+</div>
+<br />
+
 A simple library I've made to work easily with paths in Deno 🦕 in a more standardized 🌎 and predictable way.
 
----
+<hr /><br />
 
 ## Why?
 
@@ -120,7 +126,7 @@ Checks whether the `entrypath` is located within the `sandbox` path. This check 
 function isSandboxed(sandbox: string | URL, entrypath: string | URL): boolean
 ```
 
----
+<br /><hr />
 
 ## LICENSE 🔒
 

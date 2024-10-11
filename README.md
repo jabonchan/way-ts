@@ -29,7 +29,7 @@ import * as way from 'https://raw.githubusercontent.com/jabonchan/way.ts/refs/he
 #### `way.normalize`
 > Unless otherwise stated, all paths returned by the functions in this module are passed to `way.normalize` first before being returned.
 
-Normalizes a path-like `string` or `URL`. Normalizes relative directives, removes surrounding slashes, parses `file:` URLs, uses upper case for drive letters, removes forbidden characters in Windows *(whether you're using UNIX-based systems or Windows)*. UNIX separators *(`/`)* are always used. Empty paths return `./`.
+Normalizes a path-like `string` or `URL`. Normalizes relative directives, removes surrounding slashes *(Except for root-only paths, such as `C:/` or `/`)*, parses `file:` URLs, uses upper case for drive letters, removes forbidden characters in Windows *(whether you're using UNIX-based systems or Windows)*. UNIX separators *(`/`)* are always used. Empty paths return `./`.
 ```ts
 function normalize(entrypath: string | URL): string
 ```

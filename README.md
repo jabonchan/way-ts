@@ -75,7 +75,7 @@ function unix(entrypath: string | URL): string
 ```
 
 #### `way.basename`
-Returns the base name of the path. If the path only contains a relative directive *(i.e. `./` or `../`)*, `null` is returned instead. The drive letter *(including the `:`)* is also considered a base name.
+Returns the base name of a given path. If the path consists solely of a relative directive *(e.g., `./` or `../`)*, `null` is returned. Additionally, the drive letter *(including the `:`)* is treated as a base name. In this library, the *"base name"* refers to both the stem and the extension—essentially, the full name of the entry.
 ```ts
 function basename(entrypath: string | URL): string | null
 ```

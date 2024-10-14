@@ -133,7 +133,7 @@ Checks whether the `entrypath` is located within the `sandbox` path. This check 
 function isSandboxed(sandbox: string | URL, entrypath: string | URL): boolean
 ```
 
-### `way.isDriveLetter`
+#### `way.isDriveLetter`
 Checks if `drive` is a Windows drive letter. Returns `true` only for `LETTER:` or `LETTER:/`. If the path includes anything beyond the drive letter, it returns `false`.
 ```ts
 function isDriveLetter(drive: string | URL): boolean

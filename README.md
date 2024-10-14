@@ -20,6 +20,10 @@ I know there are great and way more robust `path` libraries for Deno out there. 
 
 I originally created this library for my own personal use, but I thought it could be helpful to others, so I decided to make it public. That said, updates will **mostly depend on my own needs** as I continue to use **way.ts** in my projects. While the APIs will reflect my current requirements, I'll aim to keep it user-friendly. Just keep in mind that updates may not be frequent.
 
+## Changelog 📰
+
+You can check the changes log [here](./CHANGELOG.md).
+
 ## Documentation 📚
 
 You can import **way.ts** in your project like this:

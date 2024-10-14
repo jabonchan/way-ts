@@ -133,6 +133,12 @@ Checks whether the `entrypath` is located within the `sandbox` path. This check 
 function isSandboxed(sandbox: string | URL, entrypath: string | URL): boolean
 ```
 
+### `way.isDriveLetter`
+Checks if `drive` is a Windows drive letter. Returns `true` only for `LETTER:` or `LETTER:/`. If the path includes anything beyond the drive letter, it returns `false`.
+```ts
+function isDriveLetter(drive: string | URL): boolean
+```
+
 ## Running Tests ⚙️
 
 **way.ts** uses Deno's built-in test feature. To run all the tests, use the following command:
@@ -147,6 +153,7 @@ deno test --filter match-pattern
 
 To see the available test names, you can check the source code. Some of the test names include:
 - `path-checks`
+- `path-info`
 - `formatting`
 
 ## Dependencies 🗃️

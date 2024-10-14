@@ -2,6 +2,7 @@ import { normalize } from './normalize.ts'
 import { separate } from './separate.ts'
 import { dirpath } from './entry-path-names.ts'
 
+import * as strings from '../strings.ts'
 import * as regexs from '../regexs.ts'
 
 export function isAbsolute(entrypath: string | URL) {
@@ -34,4 +35,11 @@ export function isSandboxed(sandbox: string | URL, entrypath: string | URL) {
     sandbox = `${normalize(sandbox).toLowerCase()}/`;
 
     return entryDirpath.startsWith(sandbox);
+}
+
+export function isDriveLetter(drive: string | URL) {
+    drive = normalize(drive);
+    drive = drive.replace(regexs.WINDOWS_ROOT, strings.EMPTY);
+
+    return !drive.length;
 }

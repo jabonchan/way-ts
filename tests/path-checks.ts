@@ -2,7 +2,6 @@ import { expect } from 'jsr:@std/expect'
 import * as way from '../mod.ts'
 
 Deno.test('path-checks-sandbox', async t => {
-    // Should NOT be sandboxed
     await t.step('(Not sandboxed) C:/ !-> C:/', () => {
         const result = way.isSandboxed('C:/', 'C:/');
         expect(result).toBeFalsy();
@@ -32,7 +31,6 @@ Deno.test('path-checks-sandbox', async t => {
         expect(result).toBeFalsy();
     });
 
-    // Should be sandboxed
     await t.step('(Sandboxed) C:/Users -> C:/', () => {
         const result = way.isSandboxed('C:/', 'C:/Users');
         expect(result).toBeTruthy();
@@ -50,30 +48,70 @@ Deno.test('path-checks-sandbox', async t => {
 });
 
 Deno.test('path-checks-is-relative/absolute', async t => {
-    // Should be relative
     await t.step('(Relative) ./', () => {
         const result = way.isRelative('./');
         expect(result).toBeTruthy();
-    })
+    });
 
     await t.step('(Relative) ../', () => {
         const result = way.isRelative('../');
         expect(result).toBeTruthy();
-    })
+    });
 
     await t.step('(Relative) ../B/../C/../', () => {
         const result = way.isRelative('../B/../C/../');
         expect(result).toBeTruthy();
-    })
+    });
 
     await t.step('(Relative) ../C/././../C/../', () => {
         const result = way.isRelative('../C/././../C/../');
         expect(result).toBeTruthy();
-    })
+    });
 
-    // Should be absolute
     await t.step('(Absolute) C:/../../', () => {
         const result = way.isAbsolute('C:/../../');
         expect(result).toBeTruthy();
-    })
+    });
+});
+
+Deno.test('path-checks-is-drive-letter', async t => {
+    await t.step('C:/ -> true', () => {
+        const result = way.isDriveLetter('C:/');
+        expect(result).toBeTruthy();
+    });
+
+    await t.step('D:/ -> true', () => {
+        const result = way.isDriveLetter('D:/');
+        expect(result).toBeTruthy();
+    });
+
+    await t.step('f:// -> true', () => {
+        const result = way.isDriveLetter('f://');
+        expect(result).toBeTruthy();
+    });
+
+    await t.step('N:/Dir -> false', () => {
+        const result = way.isDriveLetter('N:/Dir');
+        expect(result).toBeFalsy();
+    });
+
+    await t.step('/ -> false', () => {
+        const result = way.isDriveLetter('/');
+        expect(result).toBeFalsy();
+    });
+
+    await t.step("URL('file:////D:/') -> true", () => {
+        const result = way.isDriveLetter(new URL('file:////D:/'));
+        expect(result).toBeTruthy();
+    });
+
+    await t.step('M: -> true', () => {
+        const result = way.isDriveLetter('M:');
+        expect(result).toBeTruthy();
+    });
+
+    await t.step('\\Z:\\ -> true', () => {
+        const result = way.isDriveLetter('\\Z:\\');
+        expect(result).toBeTruthy();
+    });
 });

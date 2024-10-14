@@ -2,6 +2,8 @@
 
 ### nightly *"Nightly"*
 
+### v0.0.1 *"The Beginnings"*
+
 - ([#9a3827d](https://github.com/jabonchan/way.ts/commit/9a3827d1fd40b012b5bf09eba9fa43fb702db0ce)) Implemented new method `isDriveLetter`.
 
 - ([#e82bd05](https://github.com/jabonchan/way.ts/commit/e82bd0514ddfe5031e602a2245a1b363b60df94c), [#4bc338a](https://github.com/jabonchan/way.ts/commit/4bc338a20763cb682663231a27d958dedd5e477a)) Created `Deno Test` workflow.

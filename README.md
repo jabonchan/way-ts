@@ -22,7 +22,7 @@ I originally created this library for my own personal use, but I thought it coul
 
 ## Changelog 📰
 
-You can check the changes log [here](./CHANGELOG.md).
+See the complete list of changes [here](./CHANGELOG.md).
 
 ## Documentation 📚
 

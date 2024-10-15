@@ -1,7 +1,7 @@
 <h1 align="center">╰┈way.ts┈➤</h1>
 
 <div align="center">
-  <img src="https://github.com/jabonchan/way.ts/actions/workflows/deno.yml/badge.svg"></img>
+  <img src="https://github.com/jabonchan/way.ts/actions/workflows/deno.yml/badge.svg?branch=main"></img>
   <img src="https://img.shields.io/badge/Tested%20on%20Deno-2.0.0rc.10-blue"></img>
   <img src="https://img.shields.io/badge/way.ts%20Version-nightly-blue"></img>
   <img src="https://img.shields.io/badge/Dependencies-1-yellow"></img>

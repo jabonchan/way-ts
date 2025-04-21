@@ -2,9 +2,9 @@
 
 ### nightly *"Nightly"*
 
-- ( ) Updated README.md to reflect changes and some improvements.
-- ( ) Improved tests names and moved to Deno 2.2.11.
-- ( ) Implemented new method `parse`, new type `ParsedPath` and tests.
+- ([#0a9d63e](https://github.com/jabonchan/way.ts/commit/0a9d63e41c29e325e5e08d9773703cbc5d796c92)) Updated README.md to reflect changes and some improvements.0
+- ([#0a9d63e](https://github.com/jabonchan/way.ts/commit/0a9d63e41c29e325e5e08d9773703cbc5d796c92)) Improved tests names and moved to Deno 2.2.11.
+- ([#0a9d63e](https://github.com/jabonchan/way.ts/commit/0a9d63e41c29e325e5e08d9773703cbc5d796c92)) Implemented new method `parse`, new type `ParsedPath` and tests.
 
 ### v0.0.1 *"The Beginnings"*
 

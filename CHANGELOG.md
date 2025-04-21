@@ -2,10 +2,15 @@
 
 ### nightly _"Nightly"_
 
+- ([#20c8137](https://github.com/jabonchan/way.ts/commit/20c81370458699a7cf62ad5472580ad660ae39a3))
+  Started using `deno.fmt` in the source code files.
+
 - ([#0a9d63e](https://github.com/jabonchan/way.ts/commit/0a9d63e41c29e325e5e08d9773703cbc5d796c92))
-  Updated README.md to reflect changes and some improvements.0
+  Updated README.md to reflect changes and some improvements.
+
 - ([#0a9d63e](https://github.com/jabonchan/way.ts/commit/0a9d63e41c29e325e5e08d9773703cbc5d796c92))
   Improved tests names and moved to Deno 2.2.11.
+
 - ([#0a9d63e](https://github.com/jabonchan/way.ts/commit/0a9d63e41c29e325e5e08d9773703cbc5d796c92))
   Implemented new method `parse`, new type `ParsedPath` and tests.
 

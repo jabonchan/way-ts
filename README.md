@@ -28,7 +28,7 @@ See the complete list of changes [here](./CHANGELOG.md).
 
 <img align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Deno_Logo_2024.svg/2048px-Deno_Logo_2024.svg.png" alt="Deno Logo" width="80" height="80" />
 
-The **way.ts** project follows Deno's official formatting standards. All source code is automatically formatted using the `deno fmt` command,with settings defined in the `deno.json` configuration file.
+The **way.ts** project follows Deno's official formatting standards. All source code is automatically formatted using the `deno fmt` command, with settings defined in the `deno.json` configuration file.
 
 ## Documentation 📚
 

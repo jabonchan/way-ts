@@ -2,6 +2,8 @@
 
 ### nightly _"Nightly"_
 
+### v0.0.2 _"Style and Information everywhere"_
+
 - ([#20c8137](https://github.com/jabonchan/way.ts/commit/20c81370458699a7cf62ad5472580ad660ae39a3))
   Started using `deno.fmt` in the source code files.
 

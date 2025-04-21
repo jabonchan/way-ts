@@ -2,6 +2,10 @@
 
 ### nightly *"Nightly"*
 
+- ( ) Updated README.md to reflect changes and some improvements.
+- ( ) Improved tests names and moved to Deno 2.2.11.
+- ( ) Implemented new method `parse`, new type `ParsedPath` and tests.
+
 ### v0.0.1 *"The Beginnings"*
 
 - ([#9a3827d](https://github.com/jabonchan/way.ts/commit/9a3827d1fd40b012b5bf09eba9fa43fb702db0ce)) Implemented new method `isDriveLetter`.

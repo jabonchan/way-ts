@@ -2,7 +2,7 @@
 
 <div align="center">
   <img src="https://github.com/jabonchan/way.ts/actions/workflows/deno.yml/badge.svg?branch=main"></img>
-  <img src="https://img.shields.io/badge/Tested%20on%20Deno-2.0.0rc.10-blue"></img>
+  <img src="https://img.shields.io/badge/Tested%20on%20Deno-2.2.11-blue"></img>
   <img src="https://img.shields.io/badge/way.ts%20Version-nightly-blue"></img>
   <img src="https://img.shields.io/badge/Dependencies-1-yellow"></img>
 </div>
@@ -12,7 +12,7 @@ A simple library I've made to work easily with paths in Deno 🦕 in a more stan
 
 <hr /><br />
 
-## Why?
+## Why? 🤔
 
 I know there are great and way more robust `path` libraries for Deno out there. But honestly, I've never liked how they tend to use your OS' separator instead of using a unified one. That has been a problem for me sometimes, so I decided to code my own library that *—at least from my POV—* is more predictable in the resulting path string.
 
@@ -30,8 +30,81 @@ You can import **way.ts** in your project like this:
 > For specific versions of **way.ts** you can check the branches of this repository.
 
 ```ts
-import * as way from 'https://raw.githubusercontent.com/jabonchan/way.ts/refs/heads/main/mod.ts'
+import * as way from "https://raw.githubusercontent.com/jabonchan/way.ts/refs/heads/main/mod.ts";
 ```
+
+## Types 🗃️
+
+#### `ParsedPath`
+Encapsulates information about a path in a single structured object. The properties correspond to the results returned by the various methods:
+- [`way.extname`](#wayextname)
+- [`way.stemname`](#waystemname)
+- [`way.basename`](#waybasename)
+- [`way.dirname`](#waydirname)
+- [`way.dirpath`](#waydirpath)
+- [`way.separate`](#wayseparate)
+- [`way.driveletter`](#waydriveletter)
+- [`way.normalize`](#waynormalize)
+- [`way.windows`](#waywindows)
+- [`way.unix`](#wayunix)
+
+In the example below, each property includes a comment indicating the method it derives from:
+```ts
+interface ParsedPath {
+    entry: {
+        extension: string | null; // way.extname
+        stem: string | null;      // way.stemname
+        base: string | null;      // way.basename
+        path: {
+            windows: string; // way.windows
+            unix: string;    // way.unix
+            normal: string;  // way.normalize
+        }
+    }
+    
+    directory: {
+        name: string | null; // way.dirname
+        path: string | null; // way.dirpath
+    }
+
+    entries: string[];    // way.separate
+    drive: string | null; // way.driveletter
+}
+```
+
+## Methods ✨
+
+> This section provides an overview of the available methods in **way.ts**. Each method is designed to simplify path manipulation and ensure consistent behavior across different environments.
+
+#### Formatting
+- [`way.normalize`](#waynormalize): Normalize paths for consistency.
+- [`way.separate`](#wayseparate): Split paths into components.
+- [`way.windows`](#waywindows): Convert paths to Windows format.
+- [`way.unix`](#wayunix): Convert paths to UNIX format.
+- [`way.join`](#wayjoin): Combine multiple paths into one.
+
+#### Runtime Info
+- [`way.execPath`](#wayexecpath): Retrieve the executable path.
+- [`way.cwd`](#waycwd): Get the current working directory.
+
+#### Path Info
+- [`way.basename`](#waybasename): Extract the base name of a path.
+- [`way.extname`](#wayextname): Get the extension of a path.
+- [`way.stemname`](#waystemname): Retrieve the stem name of a path.
+- [`way.dirname`](#waydirname): Get the parent directory's name.
+- [`way.dirpath`](#waydirpath): Retrieve the parent directory's path.
+- [`way.driveletter`](#waydriveletter): Extract the drive letter from a path.
+- [`way.parse`](#wayparse): Returns an object containing info about the path.
+
+#### Logical Checks
+- [`way.isAbsolute`](#wayisabsolute): Check if a path is absolute.
+- [`way.isRelative`](#wayisrelative): Check if a path is relative.
+- [`way.isSandboxed`](#wayissandboxed): Verify if a path is within a sandbox.
+- [`way.isDriveLetter`](#wayisdriveletter): Determine if a string is a valid drive letter.
+
+Each method is documented in detail below, with examples to help you understand its usage.
+
+---
 
 #### `way.normalize`
 > Unless otherwise stated, all paths returned by the functions in this module are passed to `way.normalize` first before being returned.
@@ -39,6 +112,34 @@ import * as way from 'https://raw.githubusercontent.com/jabonchan/way.ts/refs/he
 Normalizes a path-like `string` or `URL`. Normalizes relative directives, removes surrounding slashes *(Except for root-only paths, such as `C:/` or `/`)*, parses `file:` URLs, uses upper case for drive letters, removes forbidden characters in Windows *(whether you're using UNIX-based systems or Windows)*. UNIX separators *(`/`)* are always used. Empty paths return `./`.
 ```ts
 function normalize(entrypath: string | URL): string
+```
+
+#### `way.separate`
+Splits the path by its separators, returning an array of base names or relative directives.
+```ts
+function separate(entrypath: string | URL): string[]
+```
+
+#### `way.windows`
+> This method builds upon the output of [`way.normalize`](#waynormalize). While it replaces path separators with `\` for Windows compatibility, all other aspects of the path remain normalized according to the rules defined by [`way.normalize`](#waynormalize).
+
+Normalizes and replaces UNIX separators in the path with Windows separators. If it's absolute and doesn't have a drive letter, it adds `C:/` at the start of the path.
+```ts
+function windows(entrypath: string | URL): string
+```
+
+#### `way.unix`
+> This method builds upon the output of [`way.normalize`](#waynormalize). While it removes the drive letter, all other aspects of the path remain normalized according to the rules defined by [`way.normalize`](#waynormalize).
+
+Normalizes the path, and, if it's absolute and has a drive letter, it removes it.
+```ts
+function unix(entrypath: string | URL): string
+```
+
+#### `way.join`
+Combines all the given paths into a single one by appending each one at the end of the previous one. Resolves relative directives. It can't go higher than the root path by using relative directives *(i.e. `/` or `C:/`)*.
+```ts
+function join(entrypath1: string | URL, ...entrypaths: (string | URL)[]): string
 ```
 
 #### `way.execPath`
@@ -55,30 +156,6 @@ function execPath(): string
 Returns the path provided by `Deno.cwd`.
 ```ts
 function cwd(): string
-```
-
-#### `way.join`
-Combines all the given paths into a single one by appending each one at the end of the previous one. Resolves relative directives. It can't go higher than the root path by using relative directives *(i.e. `/` or `C:/`)*.
-```ts
-function join(entrypath1: string | URL, ...entrypaths: (string | URL)[]): string
-```
-
-#### `way.separate`
-Splits the path by its separators, returning an array of base names or relative directives.
-```ts
-function separate(entrypath: string | URL): string[]
-```
-
-#### `way.windows`
-Normalizes and replaces UNIX separators in the path with Windows separators. If it's absolute and doesn't have a drive letter, it adds `C:/` at the start of the path.
-```ts
-function windows(entrypath: string | URL): string
-```
-
-#### `way.unix`
-Normalizes the path, and, if it's absolute and has a drive letter, it removes it.
-```ts
-function unix(entrypath: string | URL): string
 ```
 
 #### `way.basename`
@@ -115,6 +192,12 @@ function dirpath(entrypath: string | URL): string
 Returns the given path's drive letter *(`:` is not included)*. If none found, `null` is returned.
 ```ts
 function driveletter(entrypath: string | URL): string | null
+```
+
+#### `way.parse`
+Extracts information from the given path and returns it as a [`ParsedPath`](#parsedpath) object. For details, see [`ParsedPath`](#parsedpath).
+```ts
+function parse(entrypath: string | URL): ParsedPath
 ```
 
 #### `way.isAbsolute`

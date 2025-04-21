@@ -41,14 +41,17 @@ Deno.test("path-checks-sandbox", async (t) => {
         expect(result).toBeTruthy();
     });
 
-    await t.step('way.isSandboxed("/home/files", "/home/files/stuff/something")', () => {
-        const result = way.isSandboxed(
-            "/home/files",
-            "/home/files/stuff/something",
-        );
+    await t.step(
+        'way.isSandboxed("/home/files", "/home/files/stuff/something")',
+        () => {
+            const result = way.isSandboxed(
+                "/home/files",
+                "/home/files/stuff/something",
+            );
 
-        expect(result).toBeTruthy();
-    });
+            expect(result).toBeTruthy();
+        },
+    );
 });
 
 Deno.test("path-checks-is-relative/absolute", async (t) => {

@@ -1,4 +1,4 @@
-import { normalize } from './normalize.ts'
+import { normalize } from "./normalize.ts";
 
 export function execPath() {
     return normalize(Deno.execPath());

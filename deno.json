@@ -5,5 +5,12 @@
             "./tests/path-checks.ts",
             "./tests/path-info.ts"
         ]
+    },
+    "fmt": {
+        "exclude": [
+            "./README.md"
+        ],
+        "indentWidth": 4,
+        "useTabs": false
     }
 }

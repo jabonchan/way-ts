@@ -1,5 +1,5 @@
-import * as strings from '../strings.ts'
-import * as regexs from '../regexs.ts'
+import * as strings from "../strings.ts";
+import * as regexs from "../regexs.ts";
 
 export function parseURL(entrypath: string | URL) {
     if (entrypath instanceof URL) {

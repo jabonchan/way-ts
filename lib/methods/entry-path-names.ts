@@ -1,8 +1,8 @@
-import { normalize } from './normalize.ts'
-import { separate } from './separate.ts'
-import { join } from './join.ts'
+import { normalize } from "./normalize.ts";
+import { separate } from "./separate.ts";
+import { join } from "./join.ts";
 
-import * as regexs from '../regexs.ts'
+import * as regexs from "../regexs.ts";
 
 export function basename(entrypath: string | URL) {
     const name = separate(entrypath).at(-1);
@@ -21,11 +21,11 @@ export function basename(entrypath: string | URL) {
 export function extname(entrypath: string | URL) {
     const base = basename(entrypath);
 
-    if (!base || !base.includes('.')) {
+    if (!base || !base.includes(".")) {
         return null;
     }
 
-    const ext = base.split('.').at(-1)!.toLowerCase();
+    const ext = base.split(".").at(-1)!.toLowerCase();
 
     return `.${ext}`;
 }
@@ -42,7 +42,7 @@ export function stemname(entrypath: string | URL) {
 }
 
 export function dirpath(entrypath: string | URL) {
-    return join(entrypath, '../');
+    return join(entrypath, "../");
 }
 
 export function dirname(entrypath: string | URL) {

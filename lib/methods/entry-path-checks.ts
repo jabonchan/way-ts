@@ -1,14 +1,16 @@
-import { normalize } from './normalize.ts'
-import { separate } from './separate.ts'
-import { dirpath } from './entry-path-names.ts'
+import { normalize } from "./normalize.ts";
+import { separate } from "./separate.ts";
+import { dirpath } from "./entry-path-names.ts";
 
-import * as strings from '../strings.ts'
-import * as regexs from '../regexs.ts'
+import * as strings from "../strings.ts";
+import * as regexs from "../regexs.ts";
 
 export function isAbsolute(entrypath: string | URL) {
     entrypath = normalize(entrypath);
 
-    if (regexs.WINDOWS_ROOT.test(entrypath) || regexs.UNIX_ROOT.test(entrypath)) {
+    if (
+        regexs.WINDOWS_ROOT.test(entrypath) || regexs.UNIX_ROOT.test(entrypath)
+    ) {
         return true;
     }
 
@@ -30,7 +32,7 @@ export function isSandboxed(sandbox: string | URL, entrypath: string | URL) {
     if (entriesEntrypath.length <= entriesSandbox.length) {
         return false;
     }
-    
+
     const entryDirpath = `${dirpath(entrypath).toLowerCase()}/`;
     sandbox = `${normalize(sandbox).toLowerCase()}/`;
 

@@ -36,7 +36,7 @@ You can import **way.ts** in your project like this:
 > For specific versions of **way.ts** you can check the branches of this repository.
 
 ```ts
-import * as way from "https://raw.githubusercontent.com/jabonchan/way.ts/refs/heads/v0.0.2/mod.ts";
+import * as way from "https://raw.githubusercontent.com/jabonchan/way.ts/refs/heads/main/mod.ts";
 ```
 
 ## Types 🗃️

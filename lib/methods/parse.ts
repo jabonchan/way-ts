@@ -16,7 +16,7 @@ import { separate } from "./separate.ts";
  * - `way.normalize`
  * - `way.windows`
  * - `way.unix`
- * 
+ *
  * In the example below, each property includes a comment indicating the method it derives from:
  * ```ts
  * interface ParsedPath {
@@ -30,12 +30,12 @@ import { separate } from "./separate.ts";
  *             normal: string;  // way.normalize
  *         }
  *     }
- *     
+ *
  *     directory: {
  *         name: string | null; // way.dirname
  *         path: string | null; // way.dirpath
  *     }
- * 
+ *
  *     entries: string[];    // way.separate
  *     drive: string | null; // way.driveletter
  * }

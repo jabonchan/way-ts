@@ -2,7 +2,7 @@
 
 <div align="center">
   <img src="https://github.com/jabonchan/way-ts/actions/workflows/deno.yml/badge.svg?branch=main"></img>
-  <img src="https://img.shields.io/badge/Tested%20on%20Deno-2.2.11-blue"></img>
+  <img src="https://img.shields.io/badge/Tested%20on%20Deno-2.4.5-blue"></img>
   <img src="https://img.shields.io/badge/Dependencies-1-yellow"></img>
 </div>
 <br />

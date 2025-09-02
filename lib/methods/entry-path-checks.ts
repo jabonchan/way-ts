@@ -32,7 +32,10 @@ export function isRelative(entrypath: string | URL): boolean {
  * This check is **case-insensitive**. It will always return `false` if one
  * or both paths are relative.
  */
-export function isSandboxed(sandbox: string | URL, entrypath: string | URL): boolean {
+export function isSandboxed(
+    sandbox: string | URL,
+    entrypath: string | URL,
+): boolean {
     if (isRelative(sandbox) || isRelative(entrypath)) {
         return false;
     }

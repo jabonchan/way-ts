@@ -3,6 +3,13 @@ import { parseURL } from "../internal/parse-url.ts";
 import * as strings from "../strings.ts";
 import * as regexs from "../regexs.ts";
 
+/**
+ * Normalizes a path-like `string` or `URL`. Normalizes relative directives,
+ * removes surrounding slashes *(Except for root-only paths, such as `C:/` or `/`)*,
+ * parses `file:` URLs, uses upper case for drive letters, removes forbidden
+ * characters in Windows *(whether you're using UNIX-based systems or Windows)*.
+ * UNIX separators *(`/`)* are always used. Empty paths return `./`.
+ */
 export function normalize(entrypath: string | URL): string {
     entrypath = parseURL(entrypath);
 

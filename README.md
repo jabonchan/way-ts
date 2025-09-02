@@ -156,7 +156,7 @@ function execPath(): string
 
 #### `way.cwd`
 > 🗝️ Requires `--allow-read` permission.
-> 
+
 Returns the path provided by `Deno.cwd`.
 ```ts
 function cwd(): string

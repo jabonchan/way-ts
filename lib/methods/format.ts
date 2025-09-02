@@ -4,6 +4,12 @@ import { normalize } from "./normalize.ts";
 import * as strings from "../strings.ts";
 import * as regexs from "../regexs.ts";
 
+/**
+ * This method builds upon the output of `way.normalize`.
+ * While it replaces path separators with `\` for Windows compatibility,
+ * all other aspects of the path remain normalized according to the rules
+ * defined by `way.normalize`.
+ */
 export function windows(entrypath: string | URL): string {
     entrypath = normalize(entrypath).replace(
         regexs.UNIX_SEP,
@@ -17,6 +23,11 @@ export function windows(entrypath: string | URL): string {
     return `C:${entrypath}`;
 }
 
+/**
+ * This method builds upon the output of `way.normalize`.
+ * While it removes the drive letter, all other aspects of the path
+ * remain normalized according to the rules defined by `way.normalize`.
+ */
 export function unix(entrypath: string | URL): string {
     entrypath = normalize(entrypath);
 

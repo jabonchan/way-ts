@@ -6,7 +6,7 @@ import * as strings from "../strings.ts";
 export function join(
     entrypath1: string | URL,
     ...entrypaths: (string | URL)[]
-) {
+): string {
     entrypath1 = parseURL(entrypath1);
     entrypaths = entrypaths.map(parseURL);
 

@@ -4,7 +4,7 @@ import { join } from "./join.ts";
 
 import * as regexs from "../regexs.ts";
 
-export function basename(entrypath: string | URL) {
+export function basename(entrypath: string | URL): string | null {
     const name = separate(entrypath).at(-1);
 
     if (!name) {
@@ -18,7 +18,7 @@ export function basename(entrypath: string | URL) {
     return name;
 }
 
-export function extname(entrypath: string | URL) {
+export function extname(entrypath: string | URL): string | null {
     const base = basename(entrypath);
 
     if (!base || !base.includes(".")) {
@@ -30,7 +30,7 @@ export function extname(entrypath: string | URL) {
     return `.${ext}`;
 }
 
-export function stemname(entrypath: string | URL) {
+export function stemname(entrypath: string | URL): string | null {
     const base = basename(entrypath);
     const ext = extname(entrypath);
 
@@ -41,15 +41,15 @@ export function stemname(entrypath: string | URL) {
     return base.slice(0, -ext.length) || null;
 }
 
-export function dirpath(entrypath: string | URL) {
+export function dirpath(entrypath: string | URL): string {
     return join(entrypath, "../");
 }
 
-export function dirname(entrypath: string | URL) {
+export function dirname(entrypath: string | URL): string | null {
     return basename(dirpath(entrypath));
 }
 
-export function driveletter(entrypath: string | URL) {
+export function driveletter(entrypath: string | URL): string | null {
     entrypath = normalize(entrypath);
     const drive = entrypath.match(regexs.WINDOWS_ROOT)?.[1];
 

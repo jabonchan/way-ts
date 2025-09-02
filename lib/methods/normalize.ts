@@ -3,7 +3,7 @@ import { parseURL } from "../internal/parse-url.ts";
 import * as strings from "../strings.ts";
 import * as regexs from "../regexs.ts";
 
-export function normalize(entrypath: string | URL) {
+export function normalize(entrypath: string | URL): string {
     entrypath = parseURL(entrypath);
 
     if (regexs.ONLY_SEPARATORS.test(entrypath)) {

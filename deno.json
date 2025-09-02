@@ -1,4 +1,9 @@
 {
+    "name": "@jabonchan/way.ts",
+    "version": "0.0.1",
+    "exports": {
+        ".": "./mod.ts"
+    },
     "test": {
         "include": [
             "./tests/formatting.ts",

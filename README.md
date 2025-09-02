@@ -3,7 +3,6 @@
 <div align="center">
   <img src="https://github.com/jabonchan/way.ts/actions/workflows/deno.yml/badge.svg?branch=main"></img>
   <img src="https://img.shields.io/badge/Tested%20on%20Deno-2.2.11-blue"></img>
-  <img src="https://img.shields.io/badge/way.ts%20Version-nightly-blue"></img>
   <img src="https://img.shields.io/badge/Dependencies-1-yellow"></img>
 </div>
 <br />
@@ -33,10 +32,9 @@ The **way.ts** project follows Deno's official formatting standards. All source 
 ## Documentation 📚
 
 You can import **way.ts** in your project like this:
-> For specific versions of **way.ts** you can check the branches of this repository.
 
 ```ts
-import * as way from "https://raw.githubusercontent.com/jabonchan/way.ts/refs/heads/main/mod.ts";
+import * as way from "jsr:";
 ```
 
 ## Types 🗃️

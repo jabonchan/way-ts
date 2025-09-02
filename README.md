@@ -1,7 +1,7 @@
-<h1 align="center">╰┈way.ts┈➤</h1>
+<h1 align="center">╰┈way-ts┈➤</h1>
 
 <div align="center">
-  <img src="https://github.com/jabonchan/way.ts/actions/workflows/deno.yml/badge.svg?branch=main"></img>
+  <img src="https://github.com/jabonchan/way-ts/actions/workflows/deno.yml/badge.svg?branch=main"></img>
   <img src="https://img.shields.io/badge/Tested%20on%20Deno-2.2.11-blue"></img>
   <img src="https://img.shields.io/badge/Dependencies-1-yellow"></img>
 </div>
@@ -17,7 +17,7 @@ I know there are great and way more robust `path` libraries for Deno out there. 
 
 ## Quick Note 📝
 
-I originally created this library for my own personal use, but I thought it could be helpful to others, so I decided to make it public. That said, updates will **mostly depend on my own needs** as I continue to use **way.ts** in my projects. While the APIs will reflect my current requirements, I'll aim to keep it user-friendly. Just keep in mind that updates may not be frequent.
+I originally created this library for my own personal use, but I thought it could be helpful to others, so I decided to make it public. That said, updates will **mostly depend on my own needs** as I continue to use **way-ts** in my projects. While the APIs will reflect my current requirements, I'll aim to keep it user-friendly. Just keep in mind that updates may not be frequent.
 
 ## Changelog 📰
 
@@ -27,14 +27,14 @@ See the complete list of changes [here](./CHANGELOG.md).
 
 <img align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Deno_Logo_2024.svg/2048px-Deno_Logo_2024.svg.png" alt="Deno Logo" width="80" height="80" />
 
-The **way.ts** project follows Deno's official formatting standards. All source code is automatically formatted using the `deno fmt` command, with settings defined in the `deno.json` configuration file.
+The **way-ts** project follows Deno's official formatting standards. All source code is automatically formatted using the `deno fmt` command, with settings defined in the `deno.json` configuration file.
 
 ## Documentation 📚
 
-You can import **way.ts** in your project like this:
+You can import **way-ts** in your project like this:
 
 ```ts
-import * as way from "jsr:@jabonchan/way.ts";
+import * as way from "jsr:@jabonchan/way-ts";
 ```
 
 ## Types 🗃️
@@ -78,7 +78,7 @@ interface ParsedPath {
 
 ## Methods ✨
 
-> This section provides an overview of the available methods in **way.ts**. Each method is designed to simplify path manipulation and ensure consistent behavior across different environments.
+> This section provides an overview of the available methods in **way-ts**. Each method is designed to simplify path manipulation and ensure consistent behavior across different environments.
 
 #### Formatting
 - [`way.normalize`](#waynormalize): Normalize paths for consistency.
@@ -230,7 +230,7 @@ function isDriveLetter(drive: string | URL): boolean
 
 ## Running Tests ⚙️
 
-**way.ts** uses Deno's built-in test feature. To run all the tests, use the following command:
+**way-ts** uses Deno's built-in test feature. To run all the tests, use the following command:
 ```bash
 deno test
 ```
@@ -247,10 +247,10 @@ To see the available test names, you can check the source code. Some of the test
 
 ## Dependencies 🗃️
 
-**way.ts** uses Deno's [expect](https://jsr.io/@std/expect) from the [Deno Standard Library](https://jsr.io/@std) for testing, which is licensed under the MIT license. I do not own nor have any right over this dependency.
+**way-ts** uses Deno's [expect](https://jsr.io/@std/expect) from the [Deno Standard Library](https://jsr.io/@std) for testing, which is licensed under the MIT license. I do not own nor have any right over this dependency.
 
 <br /><hr />
 
 ## LICENSE 🔒
 
-**way.ts** is licensed under the MIT License. By using this library, you agree to all the terms and conditions stated in the license.
+**way-ts** is licensed under the MIT License. By using this library, you agree to all the terms and conditions stated in the license.

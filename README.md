@@ -34,7 +34,7 @@ The **way.ts** project follows Deno's official formatting standards. All source 
 You can import **way.ts** in your project like this:
 
 ```ts
-import * as way from "jsr:";
+import * as way from "jsr:@jabonchan/way.ts";
 ```
 
 ## Types 🗃️

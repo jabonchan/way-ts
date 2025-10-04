@@ -3,6 +3,9 @@
     "version": "0.0.3",
     "license": "MIT",
     "exports": "./mod.ts",
+    "imports": {
+        "@std/expect": "jsr:@std/expect@1.0.17"
+    },
     "test": {
         "include": [
             "./tests/formatting.ts",

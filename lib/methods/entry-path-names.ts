@@ -27,8 +27,8 @@ export function basename(entrypath: string | URL): string | null {
 }
 
 /**
- * Returns the extension name *(including the `.`)* of the path in
- * lower case. If it doesn't has an extension *(i.e. `make` or `../`)* ,
+ * Returns the extension name *(including the `.`)* of the path without
+ * changing case. If it doesn't has an extension *(i.e. `make` or `../`)* ,
  * `null` is returned instead.
  */
 export function extname(entrypath: string | URL): string | null {
@@ -38,7 +38,7 @@ export function extname(entrypath: string | URL): string | null {
         return null;
     }
 
-    const ext = base.split(".").at(-1)!.toLowerCase();
+    const ext = base.split(".").at(-1)!;
 
     return `.${ext}`;
 }

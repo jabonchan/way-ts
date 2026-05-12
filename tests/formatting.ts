@@ -80,9 +80,9 @@ Deno.test("formatting-os", async (t) => {
         const result = way.windows("C:/Test");
         expect(result).toEqual("C:\\Test");
     });
-    await t.step('way.windows("/Test")', () => {
-        const result = way.windows("/Test");
-        expect(result).toEqual("C:\\Test");
+    await t.step('way.windows("/Test/a.EXT")', () => {
+        const result = way.windows("/Test/a.EXT");
+        expect(result).toEqual("C:\\Test\\a.EXT");
     });
 
     await t.step('way.unix("C:\\Test")', () => {

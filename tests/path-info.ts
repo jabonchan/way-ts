@@ -32,7 +32,7 @@ Deno.test("path-info-parse", async (t) => {
 
         expect(result).toEqual({
             entry: {
-                extension: ".env",
+                extension: ".ENV",
                 stem: null,
                 base: ".ENV",
                 path: {
@@ -82,7 +82,7 @@ Deno.test("path-info-parse", async (t) => {
 
         expect(result).toEqual({
             entry: {
-                extension: ".c",
+                extension: ".C",
                 stem: "b",
                 base: "b.C",
                 path: {
@@ -155,7 +155,7 @@ Deno.test("path-info-extame", async (t) => {
 
     await t.step('way.extname("C:/.ENV")', () => {
         const result = way.extname("C:/.ENV");
-        expect(result).toBe(".env");
+        expect(result).toBe(".ENV");
     });
 
     await t.step('way.extname("C:/env")', () => {
@@ -165,7 +165,7 @@ Deno.test("path-info-extame", async (t) => {
 
     await t.step('way.extname("/a/b.C")', () => {
         const result = way.extname("/a/b.C");
-        expect(result).toBe(".c");
+        expect(result).toBe(".C");
     });
 
     await t.step('way.extname("/")', () => {
@@ -181,8 +181,8 @@ Deno.test("path-info-basename", async (t) => {
     });
 
     await t.step('way.basename("C:/.ENV")', () => {
-        const result = way.basename("C:/.ENV");
-        expect(result).toBe(".ENV");
+        const result = way.basename("C:/.eNv");
+        expect(result).toBe(".eNv");
     });
 
     await t.step("(Basename) C:/env -> env", () => {

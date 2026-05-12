@@ -16,8 +16,8 @@ Deno.test("path-checks-sandbox", async (t) => {
         expect(result).toBeFalsy();
     });
 
-    await t.step('way.isSandboxed("C:/", "/usr")', () => {
-        const result = way.isSandboxed("C:/", "/usr");
+    await t.step('way.isSandboxed("C:/usr/", "C:/usR/a")', () => {
+        const result = way.isSandboxed("C:/usr/", "C:/usR/a");
         expect(result).toBeFalsy();
     });
 

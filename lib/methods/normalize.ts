@@ -6,7 +6,7 @@ import * as regexs from "../regexs.ts";
 /**
  * Normalizes a path-like `string` or `URL`. Normalizes relative directives,
  * removes surrounding slashes *(Except for root-only paths, such as `C:/` or `/`)*,
- * parses `file:` URLs, uses upper case for drive letters, removes forbidden
+ * parses `file:` URLs, uses upper case for drive letters, does not remove forbidden
  * characters in Windows *(whether you're using UNIX-based systems or Windows)*.
  * UNIX separators *(`/`)* are always used. Empty paths return `./`.
  */
@@ -58,7 +58,6 @@ export function normalize(entrypath: string | URL): string {
 
         entryname = strings.removeTrailing(
             entryname
-                .replace(regexs.FORBIDDEN_CHARSET, strings.EMPTY)
                 .trim(),
             strings.CURRENT_DIR,
         ).trim();

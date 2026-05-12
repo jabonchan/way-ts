@@ -29,7 +29,7 @@ export function isRelative(entrypath: string | URL): boolean {
 
 /**
  * Checks whether the `entrypath` is located within the `sandbox` path.
- * This check is **case-insensitive**. It will always return `false` if one
+ * This check is **case-sensitive**. It will always return `false` if one
  * or both paths are relative.
  */
 export function isSandboxed(
@@ -47,8 +47,8 @@ export function isSandboxed(
         return false;
     }
 
-    const entryDirpath = `${dirpath(entrypath).toLowerCase()}/`;
-    sandbox = `${normalize(sandbox).toLowerCase()}/`;
+    const entryDirpath = `${dirpath(entrypath)}/`;
+    sandbox = `${normalize(sandbox)}/`;
 
     return entryDirpath.startsWith(sandbox);
 }

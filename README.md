@@ -30,7 +30,7 @@ it user-friendly. Just keep in mind that updates may not be frequent.
 
 ## Coding Style ✍️
 
-<img align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Deno_Logo_2024.svg/2048px-Deno_Logo_2024.svg.png" alt="Deno Logo" width="80" height="80" />
+<img align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Deno_Logo_2024.svg/250px-Deno_Logo_2024.svg.png" alt="Deno Logo" width="80" height="80" />
 
 The **way-ts** project follows Deno's official formatting standards. All source
 code is automatically formatted using the `deno fmt` command, with settings
